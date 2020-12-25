@@ -1,5 +1,5 @@
 
-const rest_host = "https://qrsis-rest.herokuapp.com/";
+const rest_host = "https://qrsis-java.herokuapp.com/";
 // const rest_host = "http://localhost:8080/";
 
 function updatableTable(cell, type, field, id) {
