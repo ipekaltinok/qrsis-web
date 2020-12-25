@@ -1,0 +1,90 @@
+.bg-blue {
+    background-color: #56baed !important;
+}
+
+.card-button {
+    float: left;
+    padding: 10px;
+    margin: 50px 25px 25px 25px;
+    width: 15rem !important;
+}
+
+table {
+    width: 100%;
+}
+
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #56baed; /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.input {
+    border: none;
+    box-shadow: 0 1px 0 0 #56baed;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.modal .input {
+    margin-top: 10px !important;
+}
+
+.search {
+    width: 100%;
+    padding: 10px;
+    margin-top: 50px !important;
+}
+
+table button {
+    margin: 5px;
+}
+
+#modal-body div {
+    float: left;
+}
+
+.table {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.modal-xl {
+    max-width: 100% !important;
+}
+
+.login {
+    margin-top: 20px;
+}
+
+.login .input{
+    padding-top: 20px;
+}
+
+.attendance-modal {
+    max-width: 100% !important;
+    width: 90% !important;
+}
+
+.card {
+    width: 100%;
+}
+
+.check {
+    color: darkgreen;
+    font-size: 35px;
+}
+
+.cancel {
+    color: crimson;
+    font-size: 35px;
+}

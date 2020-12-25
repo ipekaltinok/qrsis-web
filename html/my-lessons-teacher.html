@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.slim.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.5.2/bootstrap.min.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/myLessonsTeacher.js"></script>
+    <script src="../js/attendance.js"></script>
+    <script src="../js/studentAttendance.js"></script>
+</head>
+<body>
+
+<!-- Üstteki mavi menü -->
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-blue">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-item nav-link active">QRSis</a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <a id="user-name" class="nav-item nav-link active"></a>
+                <a href="#" class="nav-item nav-link" onclick="logout()">Çıkış</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <div class="table">
+        <table id="lesson-table" class="table table-hover" hidden>
+            <thead>
+            <th>Ders Adı</th>
+            <th>İşlem</th>
+            </thead>
+
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Yeni Öğrenci Modal -->
+    <div class="modal fade" id="attendance-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable attendance-modal" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="attendance-modal-title" class="modal-title"></h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class=" col">
+                                    <div class="card border-success mt-3">
+                                        <div id="attendingStudents" class="card-body text-success">
+
+                                        </div>
+                                    </div>
+                            </div>
+                            <div id="image" class="col-4">
+
+                            </div>
+                            <div class="col">
+                                <div class="card border-danger mt-3">
+                                    <div id="nonAttendingStudents" class="card-body text-danger">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Yeni Öğrenci Modal -->
+    <div class="modal fade" id="statistic-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="statistic-modal-title" class="modal-title"></h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Yeni Öğrenci Modal -->
+    <div class="modal fade" id="student-attendance-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="student-name" class="modal-title"></h5>
+                    <h8 id="lesson-name" class="modal-title"></h8>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <h4 id="attendance-ratio"></h4>
+                        <table id="student-attendance" hidden>
+                            <thead>
+                            <tr>
+                                <th>Tarih</th>
+                                <th>Başlangıç Saati</th>
+                                <th>Bitiş Saati</th>
+                                <th>Katılım Durumu</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hata modalı -->
+<div class="modal fade" id="error-modal" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="card border-danger">
+                    <div class="card-body text-danger">
+                        <h5> HATA </h5>
+                        <p id="error-message"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="../css/main.css">
+  <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.slim.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.5.2/bootstrap.min.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/login.js"></script>
+</head>
+
+<body class="modal-open">
+
+<!-- Yeni Öğrenci Modal -->
+<div class="modal fade show" id="modal" tabindex="-1" role="dialog" style="display: block">
+  <div class="modal-dialog modal-dialog-centered modal" role="document">
+    <div class="modal-content">
+      <div class="modal-body login">
+        <div class="container">
+          <input type="text" id="login-username" class="input" name="username" placeholder="Kullanıcı Adı">
+          <input type="password" id="login-password" class="input" name="password" placeholder="Şifre">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="login()">Giriş</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade show"></div>
+
+<!-- Hata modalı -->
+<div class="modal fade" id="error-modal" tabindex="-1" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="card border-danger">
+          <div class="card-body text-danger">
+            <h5> HATA </h5>
+            <p id="error-message"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

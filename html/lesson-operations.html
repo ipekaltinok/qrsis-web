@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.slim.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.5.2/bootstrap.min.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/lessonOperations.js"></script>
+    <script src="../js/lessonCalendar.js"></script>
+    <script src="../js/lessonTeacher.js"></script>
+    <script src="../js/lessonStudent.js"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-blue">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-item nav-link active">QRSis</a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <a id="user-name" class="nav-item nav-link active"></a>
+                <a href="#" class="nav-item nav-link" onclick="logout()">Çıkış</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <!-- Search form -->
+    <div>
+        <input id="search" name="lesson" class="search input" type="text"
+               placeholder="Ders Arama (İsim)">
+    </div>
+
+    <div class="table">
+        <table id="lesson-table" class="table table-hover" hidden>
+            <thead>
+            <th>Adı</th>
+            <th>İşlem</th>
+            </thead>
+
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button id="modal-button" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal">
+        Yeni Ders
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Yeni Ders</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <input class="input" id="name" type="text" placeholder="İsim">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="createLesson()">Ekle</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="teacher-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="teacher-modal-title" class="modal-title"></h5>
+                </div>
+                <div id="teacher-modal-body" class="modal-body">
+                    <div>
+                        <table  class="table table-hover" hidden>
+                            <thead>
+
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="student-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="student-modal-title" class="modal-title"></h5>
+                </div>
+                <div id="student-modal-body" class="modal-body">
+                    <div>
+                        <table  class="table table-hover" hidden>
+                            <thead>
+
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="lesson-calendar-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="lesson-calendar-modal-title" class="modal-title"></h5>
+                </div>
+                <div class="modal-body">
+                   <table id="lesson-calendar-table">
+                       <thead>
+                       <th>Tarih</th>
+                       <th>Başlangıç Saati</th>
+                       <th>Bitiş Saati</th>
+                       <th>İşlem</th>
+                       </thead>
+
+                       <tbody>
+
+                       </tbody>
+                   </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-toggle="modal" onclick="emptyLessonCalendar()">Ders Saati Ekle</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hata modalı -->
+<div class="modal fade" id="error-modal" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="card border-danger">
+                    <div class="card-body text-danger">
+                        <h5> HATA </h5>
+                        <p id="error-message"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
